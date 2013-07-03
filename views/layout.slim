@@ -1,0 +1,11 @@
+doctype html
+html lang='en'
+  head
+    title RosalindNoty
+    meta charset='utf-8'
+    == javascript_tag 'app'
+    == stylesheet_tag 'app'
+  body
+    == slim :navbar
+    .container
+      == yield
