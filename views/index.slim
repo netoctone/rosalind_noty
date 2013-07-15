@@ -1,6 +1,25 @@
-h2 Set session params
-= settings.redis.get("latest_uuid_12") + params[:hello]
+h2 Set cookies
 
-h2 Set urls to check
+div data-cookie='#{settings.store[:cookies].all.to_json}'
 
-h2 Notification
+h2 News
+- if (time = settings.store[:news]).nil?
+  = 'No news'
+- else
+  = "News found! at #{time.value}"
+
+h2 Cookies status
+- if (time = settings.store[:bad_cookies]).nil?
+  = 'Cookies up to date!'
+- else
+  = "Cookies failed! at #{time.value}"
+
+h2 Last 5 Errors
+table.table
+  tr
+    th At
+    th Message
+  - settings.store[:exceptions][0..4].each do |ex|
+    tr
+      td = ex[:at]
+      td == ex[:msg].gsub("\n", "<br>")

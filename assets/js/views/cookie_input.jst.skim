@@ -1,0 +1,4 @@
+.form-inline data-cookie-input='true'
+  button.btn.btn-danger data-remove='true' Remove
+  input type='text' placeholder='key' data-key='true' value='#{@key}'
+  input type='text' placeholder='value' data-val='true' value='#{@value}'
